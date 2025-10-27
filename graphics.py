@@ -1,6 +1,7 @@
 # Draws the grpahics for the A* Robot Path Planner
 #By David Shapiro, October 2025
 from tkinter import *
+from tkinter import messagebox
 from constants import WAREHOUSE_HEIGHT, WAREHOUSE_WIDTH, GRID_WIDTH, GRID_HEIGHT, SCALE, ROBOT_W, ROBOT_H
 from helpers import get_shape_from_center, get_pixel_from_index
 
@@ -80,4 +81,6 @@ class Graphics():
             self.robot.start_y = f_y
             del self.path[0]
             if self.path != 0:
-                self.root.after(1000, self.animate)
+                self.root.after(800, self.animate)
+        else:
+            messagebox.showinfo("Success!", "Path was successfully found!") 

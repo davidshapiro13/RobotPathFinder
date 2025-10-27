@@ -16,7 +16,7 @@ Blue is goal state (prechosen)
 Assumptions:
 1) Used the manhattan distance heuristic
 2) Chose the A* search algorithm
-3) Each move between fiduccials counts as a cost of 1
+3) Each move between fiducials counts as a cost of 1
 4) A move through an obstacle or obstruction counts as 100 to enter, move through and exit
 5) Set the size of the board to 600x400 pixels
 6) Placed fiducials every 40 pixels
