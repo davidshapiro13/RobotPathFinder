@@ -3,11 +3,12 @@
 import random
 import numpy as np
 from graphics import Graphics
-from constants import SCALE, WAREHOUSE_WIDTH, WAREHOUSE_HEIGHT
+from constants import SCALE, WAREHOUSE_WIDTH, WAREHOUSE_HEIGHT, OBSTRUCTION, OBSTACLE
 from queue import PriorityQueue
 import tkinter as tk
 from helpers import PrioritizedItem, not_overlapping
 from grid_block import Grid_Block
+from barrier import Barrier
 from robot import Robot
 
 NUM_OBSTRUCTIONS = 10
@@ -23,9 +24,13 @@ else:
     robot = Robot()
 
 #Generate obstacles
-#start x, start y, w, h
-obstacles = [(80, 60, 100, 20), (200, 125, 40, 75), (400, 15, 20, 50),
-             (100, 275, 80, 100), (350, 275, 25, 50), (450, 300, 150, 20)]
+#start x, start y, w, h, label(0 for obstacle or 1 for obstruction)
+obstacles = [Barrier(80, 60, 100, 20, "obstacle"),
+             Barrier(200, 125, 40, 75, "obstacle"),
+             Barrier(400, 15, 20, 50, "obstacle"),
+             Barrier(100, 275, 80, 100, "obstacle"),
+             Barrier(350, 275, 25, 50, "obstacle"),
+             Barrier(450, 300, 150, 20, "obstacle")]
 
 #Generate obstructions
 obstructions = []
@@ -34,8 +39,8 @@ while len(obstructions) < NUM_OBSTRUCTIONS:
     rand_h = random.randint(10, 50)
     rand_x_start = random.randint(0, WAREHOUSE_WIDTH-rand_w)
     rand_y_start = random.randint(0, WAREHOUSE_HEIGHT-rand_h)
-    if not_overlapping(rand_x_start, rand_y_start, rand_x_start+rand_w, rand_y_start+rand_h, obstacles+obstructions):
-        obstructions.append((rand_x_start, rand_y_start, rand_w, rand_h))
+    if not_overlapping(rand_x_start, rand_y_start, rand_x_start+rand_w, rand_y_start+rand_h, obstacles+obstructions)[0]:
+        obstructions.append(Barrier(rand_x_start, rand_y_start, rand_w, rand_h, "obstruction"))
 
 #Checks if child is in frontier
 def not_in_frontier(child, in_frontier):

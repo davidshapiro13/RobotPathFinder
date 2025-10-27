@@ -1,6 +1,6 @@
 #Defines a grid block of the graph
 #Written by David Shapiro, October 2025
-from constants import GRID_HEIGHT, GRID_WIDTH, HIGH_COST, ROBOT_W, ROBOT_H
+from constants import GRID_HEIGHT, GRID_WIDTH, ROBOT_W, ROBOT_H
 from helpers import get_shape_from_center, not_overlapping, get_pixel_from_index
 
 class Grid_Block():
@@ -60,9 +60,9 @@ class Grid_Block():
         high_y = max(curr_y_loc+ROBOT_H, new_y_loc+ROBOT_H)
         low_x  = min(curr_x_loc, new_x_loc)
         low_y  = min(curr_y_loc, new_y_loc)
-
-        if not not_overlapping(low_x, low_y, high_x, high_y, avoid):
-            total_cost += HIGH_COST
+        overlap, cost = not_overlapping(low_x, low_y, high_x, high_y, avoid)
+        if not overlap:
+            total_cost += cost
         return total_cost
 
     #Predicted total cost given movement

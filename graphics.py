@@ -45,7 +45,7 @@ class Graphics():
 
     def draw_obstacles(self, obstacles, color):
         for obstacle in obstacles:
-            start_x, start_y, width, height = obstacle
+            start_x, start_y, width, height = obstacle.get_shape_values()
             self.canvas.create_rectangle(start_x, start_y, start_x+width, start_y+height, fill=color)
    
     def run(self, goal, obstacles, obstructions):

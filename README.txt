@@ -17,8 +17,11 @@ Assumptions:
 1) Used the manhattan distance heuristic
 2) Chose the A* search algorithm
 3) Each move between fiducials counts as a cost of 1
-4) A move through an obstacle or obstruction counts as 100 to enter, move through and exit
-5) Set the size of the board to 600x400 pixels
-6) Placed fiducials every 40 pixels
-7) Assuming robots don't need to turn orientation when moving in a new direction
-8) Assuming robots can drive through obstacles/obstructions if no better option
+4) A move through an obstacle is very expensive (100000)
+5) A move through an obstruction is mildly expensive (100)
+6) Set the size of the board to 600x400 pixels
+7) Placed fiducials every 40 pixels
+8) Assuming robots don't need to turn orientation when moving in a new direction
+9) Assuming robots can drive through obstacles/obstructions if no better option
+
+I used some documenation resources such as W3School to learn about the libraries I used

@@ -24,12 +24,12 @@ def get_pixel_from_index(index):
 #Checks if an item overlaps with an obstacle
 def not_overlapping(low_x, low_y, high_x, high_y, obstacles):
     for obstacle in obstacles:
-        ob_low_x, ob_low_y, ob_w, ob_h = obstacle
+        ob_low_x, ob_low_y, ob_w, ob_h = obstacle.get_shape_values()
         ob_high_x =  ob_low_x + ob_w
         ob_high_y =  ob_low_y + ob_h
         if ob_low_y > high_y or ob_high_y < low_y or \
                ob_low_x > high_x or ob_high_x < low_x:
             pass
         else:
-            return False
-    return True
+            return (False, obstacle.cost())
+    return (True, 0)
