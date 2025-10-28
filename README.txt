@@ -23,5 +23,7 @@ Assumptions:
 7) Placed fiducials every 40 pixels
 8) Assuming robots don't need to turn orientation when moving in a new direction
 9) Assuming robots can drive through obstacles/obstructions if no better option
+10) Assume no ceilings or door barriers (x, y plane only)
 
-I used some documenation resources such as W3School to learn about the libraries I used
+I used some documenation resources such as W3School to learn about the
+libraries I used and the course materials.

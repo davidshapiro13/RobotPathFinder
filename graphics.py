@@ -37,6 +37,7 @@ class Graphics():
             for j in range(1, GRID_HEIGHT*SCALE + 1, 2):
                 x_start, y_start, w, h = get_shape_from_center(i*SCALE, j*SCALE, SCALE/4, SCALE/4)
                 self.canvas.create_rectangle(x_start, y_start, x_start+w, y_start+h)
+                
     def draw_goal(self, goalBlock):
         center_x = get_pixel_from_index(goalBlock.getX())
         center_y = get_pixel_from_index(goalBlock.getY())
